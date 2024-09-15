@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Attrition Prediction</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header">
+                <h2>Employee Attrition Prediction</h2>
+            </div>
+            <div class="card-body">
+                <form action="/predict" method="post">
+                    <div class="form-group">
+                        <label for="Age">Age:</label>
+                        <input type="number" class="form-control" id="Age" name="Age" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="BusinessTravel">Business Travel:</label>
+                        <select class="form-control" id="BusinessTravel" name="BusinessTravel" required>
+                            <option value="Travel_Rarely">Travel Rarely</option>
+                            <option value="Travel_Frequently">Travel Frequently</option>
+                            <option value="Non-Travel">Non-Travel</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="EnvironmentSatisfaction">Environment Satisfaction (1-4):</label>
+                        <input type="number" class="form-control" id="EnvironmentSatisfaction" name="EnvironmentSatisfaction" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="JobRole">Job Role:</label>
+                        <input type="text" class="form-control" id="JobRole" name="JobRole" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="JobSatisfaction">Job Satisfaction (1-4):</label>
+                        <input type="number" class="form-control" id="JobSatisfaction" name="JobSatisfaction" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="MonthlyIncome">Monthly Income:</label>
+                        <input type="number" class="form-control" id="MonthlyIncome" name="MonthlyIncome" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="NumCompaniesWorked">Number of Companies Worked:</label>
+                        <input type="number" class="form-control" id="NumCompaniesWorked" name="NumCompaniesWorked" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="TotalWorkingYears">Total Working Years:</label>
+                        <input type="number" class="form-control" id="TotalWorkingYears" name="TotalWorkingYears" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="WorkLifeBalance">Work Life Balance (1-4):</label>
+                        <input type="number" class="form-control" id="WorkLifeBalance" name="WorkLifeBalance" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="YearsAtCompany">Years at Company:</label>
+                        <input type="number" class="form-control" id="YearsAtCompany" name="YearsAtCompany" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Predict</button>
+                </form>
+                {% if prediction_text %}
+                <div class="alert alert-info mt-3">
+                    <strong>Prediction:</strong> {{ prediction_text }}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="card mt-5">
+            <div class="card-header">
+                <h2>About the Developer</h2>
+            </div>
+            <div class="card-body text-center">
+        
+                <p>This Text-to-Image AI model was developed by Sudhanthirapriya, a passionate AI developer with expertise in Artificial Intelligence and deep learning frameworks.</p>
+                <p>
+                    <a href="https://sudhanthirapriya.github.io/Portfolio/" class="btn btn-secondary">Contact Me</a>
+                    <a href="https://www.linkedin.com/in/-sudhanthirapriya/" class="btn btn-secondary">Hire Me</a>
+                </p>
+            </div>
+        </div>
+        <div class="card mt-5">
+            <div class="card-header">
+                <h2>Other Models</h2>
+            </div>
+            <div class="card-body">
+                <ul>
+                    <li><a href="https://su-model.onrender.com/">Realtime Text-to-Image Generation Model</a></li>
+                    <li><a href="https://su14-model.onrender.com/">Realtime Age Prediction Model</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
